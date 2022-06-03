@@ -12,7 +12,7 @@
 
 	<groupId>br.com.rogerfdeazevedo</groupId>
 	<artifactId>springboot-forum-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<name>springboot-forum-api</name>
 	<description>Projeto de estudo API REST com Springboot</description>
