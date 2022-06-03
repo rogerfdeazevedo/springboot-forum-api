@@ -2,7 +2,6 @@
 
 # Spring Boot Forum API
 [![Project Version][version-image]][version-url]
-<!--[![Frontend][Frontend-image]][Frontend-url] -->
 [![Backend][Backend-image]][Backend-url]
 
 > Projeto de estudo para desenvolvimento de API REST.
@@ -20,13 +19,14 @@ Simula parte de um forum de discussão de um portal de cursos.
 
 Esse projeto foi desenvolvimedo para demonstrar:
 
-* API Rest
 * Java e OOP
+* CRUD
+* API Rest
 
 ## Tecnologia
 
 * [Maven](https://maven.org/) - Dependency Management
-* [Spring Boot API REST](https://https://start.spring.io/)
+* [Spring Boot Framework](https://https://start.spring.io/) - Framework API Rest
 
 ## Release History
 
@@ -58,7 +58,5 @@ Exemplo
 
 [version-image]: https://img.shields.io/badge/Version-1.0.0-brightgreen?style=for-the-badge&logo=appveyor
 [version-url]: https://img.shields.io/badge/version-1.0.0-green
-[Frontend-image]: https://img.shields.io/badge/Frontend-Ionic-blue?style=for-the-badge
-[Frontend-url]: https://img.shields.io/badge/Frontend-Ionic-blue?style=for-the-badge
-[Backend-image]: https://img.shields.io/badge/Backend-Java%211-important?style=for-the-badge
-[Backend-url]: https://img.shields.io/badge/Backend-Java%211-important?style=for-the-badge
+[Backend-image]: https://img.shields.io/badge/Backend-Java%2011-important?style=for-the-badge
+[Backend-url]: https://img.shields.io/badge/Backend-Java%2011-important?style=for-the-badge
