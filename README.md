@@ -30,7 +30,9 @@ Esse projeto foi desenvolvimedo para demonstrar:
 
 ## Release History
 
-* 0.0.1
+* 2.0.0
+  * Spring Boot API REST - Segurança, Cache e Monitoramento
+* 1.0.0
     * Spring Boot API REST - CRUD Básico
 
 ## Descrição de dominio do projeto
