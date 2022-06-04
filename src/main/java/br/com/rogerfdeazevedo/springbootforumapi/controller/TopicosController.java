@@ -9,6 +9,10 @@ import br.com.rogerfdeazevedo.springbootforumapi.dto.OutTopicoDTO;
 import br.com.rogerfdeazevedo.springbootforumapi.repository.CursoRepository;
 import br.com.rogerfdeazevedo.springbootforumapi.repository.TopicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -16,8 +20,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -30,18 +32,16 @@ public class TopicosController {
     CursoRepository cursoRepository;
 
     @RequestMapping("/v1/topicos")
-    public List<OutTopicoDTO> listar(String nomeCurso){
-        List<OutTopicoDTO> outTopicoDTOList = new ArrayList<>();
+    public Page<OutTopicoDTO> listar(@RequestParam(required = false) String nomeCurso
+            ,@PageableDefault(sort = "id", direction = Sort.Direction.ASC) Pageable pageable){
         if(nomeCurso == null ) {
-            topicoRepository.findAll().forEach((Topico topico) -> {outTopicoDTOList.add(new OutTopicoDTO(topico));});
+            return topicoRepository.findAll(pageable).map(OutTopicoDTO::new);
         } else {
-            topicoRepository.findByCurso_Nome(nomeCurso).forEach((Topico topico) -> {outTopicoDTOList.add(new OutTopicoDTO(topico));});
+            return topicoRepository.findByCurso_Nome(nomeCurso, pageable).map(OutTopicoDTO::new);
         }
-        return outTopicoDTOList;
     }
 
-    @PostMapping("/v1/topicos")
-    @Transactional
+    @PostMapping("/v1/topicos") @Transactional
     public ResponseEntity<OutTopicoDTO> cadastrar(@RequestBody @Valid InTopicoDTO inTopicoDTO, UriComponentsBuilder uriComponentsBuilder){
         Curso curso = cursoRepository.findByNome(inTopicoDTO.getNomeCurso());
         Topico topico = inTopicoDTO.converterParaTopico(curso);
@@ -60,8 +60,7 @@ public class TopicosController {
         }
     }
 
-    @PutMapping("/v1/topicos/{id}")
-    @Transactional
+    @PutMapping("/v1/topicos/{id}") @Transactional
     public ResponseEntity<OutTopicoDTO> atualizar(@PathVariable Long id, @RequestBody @Valid InUpdateTopicoDTO inUpdateTopicoDTO){
         Optional<Topico> topico = topicoRepository.findById(id);
         if(topico.isPresent()){
@@ -73,8 +72,7 @@ public class TopicosController {
         }
     }
 
-    @DeleteMapping("/v1/topicos/{id}")
-    @Transactional
+    @DeleteMapping("/v1/topicos/{id}") @Transactional
     public ResponseEntity<?> remover(@PathVariable Long id){
         Optional<Topico> topico = topicoRepository.findById(id);
         if(topico.isPresent()){
