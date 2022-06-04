@@ -33,20 +33,28 @@ Esse projeto foi desenvolvimedo para demonstrar:
 
 * **1.1.0**
   * **Paginição e Ordenação de recursos**
-    * **Controller**: Uso da inteface Pageable para realizar a paginação com Spring Data JPA;
-    * **Controller**: Métodos passam a retornar objetos do tipo Page<> ao invés de List<>;
-    * **Repository**: Métodos passam a receber como parâmetro um Pageable e retornar objetos do tipo Page<> ao invés de List<>;
-    * **Main**: Habilitar módulo SpringDataWebSupport adicionando a anotação @EnableSpringDataWebSupport na classe principal da aplicação;
+    * **Controller**: 
+      * Uso da inteface Pageable para realizar a paginação com Spring Data JPA;
+      * Métodos passam a retornar objetos do tipo Page<> ao invés de List<>;
+    * **Repository**: 
+      * Métodos passam a receber como parâmetro um Pageable e retornar objetos do tipo Page<> ao invés de List<>;
+    * **Main**: 
+      * Habilitar módulo SpringDataWebSupport adicionando a anotação @EnableSpringDataWebSupport na classe principal da aplicação;
 
 * **1.0.0**
     * **Spring Boot API REST - CRUD Básico**
-      * **Spring Initializer**: Template para criação de projetos com Spring Boot;
-      * **Arquitetura REST**: Principais conceitos como resursos, URIs, verbos HTTP e comunicação Statess;     
-      * **Dependências**: Utilizar o módulo Spring Boot DevTools para não precisar reiniciar manualmente o servidor sempre que ocorre alteração de código;
-      * **Dependências**: Utilizar o módulo Spring Boot Data JPA para utilizar JPA no projeto;
-      * **Dependências**: Utilizar banco de dados em memóriia H2;
-      * **Controller**: Como boa prática utilizar objetos DTOs no retorno dos metódos ao invés de devolver entidades JPA;
-      * **Bean Validation**: Utilizar para tratamento de erros do cliente, validações de campos na requisição;
+      * **Spring Initializer**: 
+        * Template para criação de projetos com Spring Boot;
+      * **Arquitetura REST**: 
+        * Principais conceitos como resursos, URIs, verbos HTTP e comunicação Statess;     
+      * **Dependências**: 
+        * Utilizar o módulo Spring Boot DevTools para não precisar reiniciar manualmente o servidor sempre que ocorre alteração de código;
+        * Utilizar o módulo Spring Boot Data JPA para utilizar JPA no projeto;
+        * Utilizar banco de dados em memóriia H2;
+      * **Controller**: 
+        * Como boa prática utilizar objetos DTOs no retorno dos metódos ao invés de devolver entidades JPA;
+      * **Bean Validation**: 
+        * Utilizar para tratamento de erros do cliente, validações de campos na requisição;
    
       
 
