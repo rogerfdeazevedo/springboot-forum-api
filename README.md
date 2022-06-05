@@ -31,6 +31,23 @@ Esse projeto foi desenvolvimedo para demonstrar:
 
 ## Release History
 
+* **1.2.0** 
+* **Spring Cache**
+  * **Dependências**:
+      * Utilizar o módulo Spring Boot Starter Cache utilizar o recurso de cache;
+      * Utilizar cache padrão em memória para fins de estudo, configurar servidor de cache em produção como boa prática;
+  * **Main**:
+    * Utilizar anotação @EnableCaching para hailitar o uso de cache no projeto.
+  * **Controller**:
+    * Utilizar anotação @Cacheable para definir qual controller deve utilizar cache;
+    * Utilizar um id para cache no atributo value da anotação, no caso de usar cache em mais de um método na mesma controller;
+      * Exemplo: @Cacheable (value = "listarTopicos")
+    * Utilizar anotação @CacheEvict para resetar o cach quando for cadastrado, atualizado  ou removido um recurso;
+    * É necessário indicar qual cache ira ser modificado atráves do seu id;
+      * Exempleo: @CacheEvict(value = "listarTopicos", allEntries = true)
+  * **Boas práticas**:
+    * Utilizar cache em tabelas que ocorram pouca ou nenhum atualização, como tabelas de parametros por exemplo;
+
 * **1.1.0**
   * **Paginição e Ordenação de recursos**
     * **Controller**: 
