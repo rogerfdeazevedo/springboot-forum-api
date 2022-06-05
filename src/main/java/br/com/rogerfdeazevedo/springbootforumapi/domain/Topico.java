@@ -1,6 +1,5 @@
 package br.com.rogerfdeazevedo.springbootforumapi.domain;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@EqualsAndHashCode
 public class Topico {
 	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

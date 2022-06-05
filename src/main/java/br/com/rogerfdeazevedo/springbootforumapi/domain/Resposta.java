@@ -1,6 +1,5 @@
 package br.com.rogerfdeazevedo.springbootforumapi.domain;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +9,6 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-@EqualsAndHashCode
 public class Resposta {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
