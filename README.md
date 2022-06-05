@@ -31,6 +31,27 @@ Esse projeto foi desenvolvimedo para demonstrar:
 
 ## Release History
 
+* **1.3.0**
+* **Spring Security**
+  * **Dependências**:
+    * * Utilizar o módulo Spring Boot Starter Security para usar o recurso de segurança;
+  * **Configurações**:
+    * Necessário criar uma nova classe para gerenciar as configurações de segurança;
+      * Exemplo: ...config.security.SecurityConfigurations
+    * Habilitar as configurações utilizando as anotações @EnableWebSecurity e @ Configuration no inicio da classe;
+    * Herdar da classe WebSecurityConfigurerAdapter para sobrescrever métodos de cofiguração que vamos utilizar;
+    * Por padrão o módulo de segurança do Spring bloqueia todos os endpoints, preciso fazer as configurações necessárias;
+    * Método "configure": 
+      * Autenticação (AuthenticationManagerBuilder auth): Serve para realizar validações de login de usuário;
+        * * Utilizar um algoritmo de hashing de senha no método passwordEncoder();
+      * Autorização (HttpSecurity http): Serve para realizar liberação de endpoint;
+        * Permitir acesso a endpoints específicos com o método: "antMathers"
+        * Restringir acesso a outros endpoits não pertimitos com os métodos: anyRequest().authenticated();
+        * Tela de login para autenticação de usuário em endpoints restritos com os métodos: .and().formLogin();
+        * Implementar as interfaces UserDetails na classe Usuario e GrandAuthority na classe Perfil, para que o Spring possa implentar o controle de autenticação;
+        * Implementar a interface UserDetailsService para fazer a lógica de autenticação validando o usuário no banco de dados;        
+      * Recursos estáticos (WebSecurity web): Serve para realizar liberação de js, css, imagens e etc;
+
 * **1.2.0** 
 * **Spring Cache**
   * **Dependências**:
