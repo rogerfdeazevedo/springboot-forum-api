@@ -25,14 +25,39 @@ Esse projeto foi desenvolvido para demonstrar:
 * Arquitetura API REST / Micro-serviço
 * Paginição e Ordenação de recursos
 * Utilização de Cache
-* Seguranaça / Geração e Autenticação via Token JWT
+* Segurança / Geração e Autenticação via Token JWT
+* Monitoramento com Spring Boot Actuator 
+* Monitoramento com Spring Boot Admin (aplicação faz o monitoramento)
+  * [springboot-forum-api-motiramento](https://github.com/rogerfdeazevedo/springboot-forum-api-motiramento) - Projeto de monitoramento;
+
 
 ## Tecnologia
 
 * [Maven](https://maven.org/) - Dependency Management
 * [Spring Boot Framework](https://https://start.spring.io/) - Framework API Rest
+* [Spring Boot Admin - Codecentric](https://github.com/codecentric/spring-boot-admin) - Framework de Monitoramento da API
 
 ## Release History
+
+* **1.5.0**
+* **Monitoramento com Spring Boot Actuator**
+  * **Dependências**:
+    * Utilizar o módulo Spring Boot Starter Actuator;
+    * Utilizar o módulo Spring Boot Admin Starter Client para API ser monitorada;
+      * Para acessar a interface gráfica do Spring Boot Admin, localmente, utilizar o endereço : http://localhost:8081
+  * **Configurações**:
+    * Método "configure":
+      * Autorização (HttpSecurity http): Serve para realizar liberação de endpoint;
+        * Adicionar o método ".antMatchers(HttpMethod.GET, "/actuator/**").permitAll()" para habilitar acesso sem restrição a URL do actuator;
+    * Application.properties (Opcional):
+      * Adicionar propriedades para mostrar mais detalhes no response body, como nome e versão da aplicação por exemplo;
+      * Para puxar informações do POM.xml, ulizar a seguinte sintaxe: "info.app.name=@project.name@";
+      * Informar o servidor admin do client de monitoramento com a propriedade: "spring.boot.admin.client.url";
+    * **Boas práticas**:
+    * Acesso restrito, pois devolve informações sensiveis da aplicação;
+    
+
+    
 
 * **1.4.0**
 * **Token JWT**
@@ -141,7 +166,7 @@ API responsável pelo dominio de negócio de Tópicos de discussão em um fórum
 
 [wiki]: https://github.com/yourname/yourproject/wiki
 
-[version-image]: https://img.shields.io/badge/Version-1.4.0-brightgreen?style=for-the-badge&logo=appveyor
-[version-url]: https://img.shields.io/badge/version-1.4.0-green
+[version-image]: https://img.shields.io/badge/Version-1.5.0-brightgreen?style=for-the-badge&logo=appveyor
+[version-url]: https://img.shields.io/badge/version-1.5.0-green
 [Backend-image]: https://img.shields.io/badge/Backend-Java%2011-important?style=for-the-badge
 [Backend-url]: https://img.shields.io/badge/Backend-Java%2011-important?style=for-the-badge
