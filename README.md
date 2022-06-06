@@ -23,6 +23,9 @@ Esse projeto foi desenvolvimedo para demonstrar:
 * Orientação a Objetos
 * CRUD
 * Arquitetra API REST / Micro-serviço
+* Paginição e Ordenação de recursos;
+* Utilização de Cache
+* Seguranaça / Geração e Autenticação via Token JWT
 
 ## Tecnologia
 
@@ -31,10 +34,29 @@ Esse projeto foi desenvolvimedo para demonstrar:
 
 ## Release History
 
+* **1.4.0**
+* **Token JWT**
+  * **Dependências**:
+    * Utilizar a lib "io.jsonwebtoken" para geração e autenticação de Token JWT;
+    * **Configurações**:
+      * Método "configure":        
+        * Autorização (HttpSecurity http): Serve para realizar liberação de endpoint;  
+          * Remover os métodos: .and().formLogin() para informar o Spring que vamos validar por sessão;
+          * Adicionar os métodos ".and().csrf().disable()" para evitar falha de segurança em caso de ataque;
+          * Adicionar os métoso ".sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)";
+          * Por não ser gerenciado pelo Spring o filtro precisa ser habilitado atráves do metódo "and().addFilterBefore(new AutenticacaoViaTokenFilter(), UsernamePasswordAuthenticationFilter.class)" na classe SecurityConfigurations;
+          * Para o Spring Security saber que o cliente está autenticado, utilizar o método ".getContext().setAuthentication(authentication)" da classe SecurityContextHolder;          
+  * **Autenticação**:
+    * Enviar token JWT no header da requisação, passar o paramêtro "Authorization" com o valor "Bearer " + token;
+    * Implementar um filtro que intercepta todas as requisições herdando da classe OncePerRequestFilter;    
+  * **Boas práticas**:
+    * Utilizar autenticação Stateless como Token JWT, ao invés de session;
+
+
 * **1.3.0**
 * **Spring Security**
   * **Dependências**:
-    * * Utilizar o módulo Spring Boot Starter Security para usar o recurso de segurança;
+    * Utilizar o módulo Spring Boot Starter Security para usar o recurso de segurança;
   * **Configurações**:
     * Necessário criar uma nova classe para gerenciar as configurações de segurança;
       * Exemplo: ...config.security.SecurityConfigurations
@@ -119,7 +141,7 @@ API responsável pelo dominio de negócio de Tópicos de discussão em um fórum
 
 [wiki]: https://github.com/yourname/yourproject/wiki
 
-[version-image]: https://img.shields.io/badge/Version-1.0.0-brightgreen?style=for-the-badge&logo=appveyor
-[version-url]: https://img.shields.io/badge/version-1.0.0-green
+[version-image]: https://img.shields.io/badge/Version-1.4.0-brightgreen?style=for-the-badge&logo=appveyor
+[version-url]: https://img.shields.io/badge/version-1.4.0-green
 [Backend-image]: https://img.shields.io/badge/Backend-Java%2011-important?style=for-the-badge
 [Backend-url]: https://img.shields.io/badge/Backend-Java%2011-important?style=for-the-badge
