@@ -22,8 +22,8 @@ Esse projeto foi desenvolvido para demonstrar:
 * Java 
 * Orientação a Objetos
 * CRUD
-* Arquitetra API REST / Micro-serviço
-* Paginição e Ordenação de recursos;
+* Arquitetura API REST / Micro-serviço
+* Paginição e Ordenação de recursos
 * Utilização de Cache
 * Seguranaça / Geração e Autenticação via Token JWT
 
