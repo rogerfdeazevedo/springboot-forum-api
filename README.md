@@ -17,7 +17,7 @@ Simula parte de um forum de discussão de um portal de cursos.
 
 ## Apresentação
 
-Esse projeto foi desenvolvimedo para demonstrar:
+Esse projeto foi desenvolvido para demonstrar:
 
 * Java 
 * Orientação a Objetos
