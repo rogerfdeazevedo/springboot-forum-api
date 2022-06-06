@@ -31,7 +31,7 @@ Esse projeto foi desenvolvido para demonstrar:
   * [springboot-forum-api-motiramento](https://github.com/rogerfdeazevedo/springboot-forum-api-motiramento) - Projeto de monitoramento;
 
 
-## Tecnologia
+## Tecnologias
 
 * [Maven](https://maven.org/) - Dependency Management
 * [Spring Boot Framework](https://https://start.spring.io/) - Framework API Rest
