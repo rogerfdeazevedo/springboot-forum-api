@@ -23,7 +23,7 @@ public class RequestFieldExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public List<OutRequestFieldExceptionDTO> handle(MethodArgumentNotValidException exception){
         List<OutRequestFieldExceptionDTO> outList = new ArrayList<>();
-        exception.getFieldErrors().forEach(e -> {
+        exception.getBindingResult().getFieldErrors().forEach(e -> {
             String message = messageSource.getMessage(e, LocaleContextHolder.getLocale());
             outList.add(new OutRequestFieldExceptionDTO(e.getField(), message));
         });
